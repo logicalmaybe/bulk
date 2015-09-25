@@ -52,3 +52,29 @@ nano /etc/env.d/02locale
 # LC_MESSAGES="C"
 
 ````
+
+### update env
+````
+env-update && source /etc/profile
+````
+
+### check all vars
+````
+locale
+
+# LANG=de_DE.utf8
+# LC_CTYPE="de_DE.utf8"
+# LC_NUMERIC="de_DE.utf8"
+# LC_TIME="de_DE.utf8"
+# LC_COLLATE="de_DE.utf8"
+# LC_MONETARY="de_DE.utf8"
+# LC_MESSAGES=C
+# LC_PAPER="de_DE.utf8"
+# LC_NAME="de_DE.utf8"
+# LC_ADDRESS="de_DE.utf8"
+# LC_TELEPHONE="de_DE.utf8"
+# LC_MEASUREMENT="de_DE.utf8"
+# LC_IDENTIFICATION="de_DE.utf8"
+# LC_ALL=
+
+````
