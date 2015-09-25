@@ -12,3 +12,12 @@ $ USE="-minimal" emerge -uvat ncurses
 $ ls -lap /usr/share/terminfo/* | wc -l
 2898
 ````
+
+### test
+
+````
+for ((color = 0; color <= 255; color++)); do
+tput setaf "$color"
+printf "test"
+done
+````
