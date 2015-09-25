@@ -22,3 +22,5 @@ printf "test"
 done
 
 ````
+
+``reset`` after test, if needed
