@@ -91,5 +91,5 @@ locale
 ### set languages globaly
 ````
 nano /etc/portage/make.conf
-LINGUAS="de en"
+# LINGUAS="de en"
 ````
