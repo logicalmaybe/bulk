@@ -66,7 +66,7 @@ nano .config
 ````
 $ ./ct-ng build
 [INFO ]  Performing some trivial sanity checks
-[INFO ]  Build started 20150925.232805
+[INFO ]  Build started 20150925.234252
 [INFO ]  Building environment variables
 [WARN ]  Directory '/home/osboxes/cross/src' does not exist.
 [WARN ]  Will not save downloaded tarballs to local storage.
@@ -77,6 +77,7 @@ $ ./ct-ng build
 [EXTRA]    Building a toolchain for:
 [EXTRA]      build  = x86_64-unknown-linux-gnu
 [EXTRA]      host   = x86_64-unknown-linux-gnu
-[EXTRA]      target = arm-unknown-linux-gnueabihf
+[EXTRA]      target = arm-hardfloat-linux-gnueabi
+[EXTRA]  Dumping internal crosstool-NG configuration: done in 0.09s (at 00:02)
 ....
 ````
