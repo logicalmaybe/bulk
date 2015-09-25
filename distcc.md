@@ -55,12 +55,12 @@ armv7a-hardfloat-linux-gnueabi
 ````
 
 # change .config to match cpu/gcc
-* replace all ``vfpv3-d16`` with ``neon``
-* set ``CT_TARGET_VENDOR`` to ``hardfloat``
-* set ``CT_ARCH_ARM_TUPLE_USE_EABIHF`` to ``no`` (would be -gnueabihf)
 ````
 nano .config
 ````
+* replace all ``vfpv3-d16`` with ``neon``
+* set ``CT_TARGET_VENDOR`` to ``hardfloat``
+* set ``CT_ARCH_ARM_TUPLE_USE_EABIHF`` to ``no`` (would be -gnueabihf)
 
 ### build
 ````
