@@ -23,4 +23,32 @@ done
 
 ````
 
-``reset`` after test, if needed
+Use ``reset`` after test, if needed.
+
+
+# UTF-8
+
+### insert ``de_DE.UTF-8 UTF-8`` into ``/etc/locale.gen``
+````
+# echo "de_DE.UTF-8 UTF-8" >> /etc/locale.gen
+````
+
+### regenerate locales
+````
+locale-gen
+````
+
+### select proper locale
+````
+eselect locale list
+eselect locale set 2
+eselect locale list
+````
+
+### insert ``LC_MESSAGES="C"`` into ``/etc/env.d/02locale`` to revert messages to default lang
+````
+nano /etc/env.d/02locale
+# LANG="de_DE.utf8"
+# LC_MESSAGES="C"
+
+````
