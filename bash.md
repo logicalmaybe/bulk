@@ -16,3 +16,10 @@ PROMPT_COMMAND="history -a"
 # history -r # reload?
 
 ````
+
+# aliases
+
+````
+alias l='ls --color=auto -lap'
+alias ll='ls --color=auto -lap'
+````
