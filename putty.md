@@ -28,6 +28,8 @@ Use ``reset`` after test, if needed.
 
 # UTF-8
 
+https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Base#Configure_locales
+
 ### insert ``de_DE.UTF-8 UTF-8`` into ``/etc/locale.gen``
 ````
 # echo "de_DE.UTF-8 UTF-8" >> /etc/locale.gen
@@ -76,5 +78,18 @@ locale
 # LC_MEASUREMENT="de_DE.utf8"
 # LC_IDENTIFICATION="de_DE.utf8"
 # LC_ALL=
+````
 
+
+### set keymap to ``de``
+````
+/etc/conf.d/keymaps
+
+# keymap="de"
+````
+
+### set languages globaly
+````
+nano /etc/portage/make.conf
+LINGUAS="de en"
 ````
