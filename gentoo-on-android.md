@@ -619,5 +619,10 @@ busybox cpio -i < ../sbin/ramdisk.cpio
 
 # pack boot.img
 ````
-
+# change something
+# nano init
+cd _unpack_ramdisk/
+find . | cpio -o -H newc | gzip > ../newramdisk.cpio.gz
+cd ..
+mkbootimg --kernel boot.img-zImage --ramdisk newramdisk.cpio.gz -o ../new_boot.img
 ````
