@@ -10,7 +10,7 @@
 Terms
 
 * -host / master / arm device-:
-**       The master is the computer which initiates and distributes the compilation to the configured slaves.
+* *       The master is the computer which initiates and distributes the compilation to the configured slaves.
 * slaves / workers: The slaves are running the distcc daemon which accepts incoming compilation requests send by the master.
 
 ## on Host
