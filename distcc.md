@@ -17,6 +17,12 @@ root@localhost $ nano /etc/portage/make.conf
 
 FEATURES="-userfetch distcc distcc-pump"
 MAKEOPTS="-j12 -l1" # l=local cores, j=all cores * 2 + 1
+
+
+
+distcc-config --set-hosts 192.168.1.116/24,lzo,cpp
+distcc-config --get-hosts
+
 ````
 
 ### add distcc to inet group
