@@ -546,3 +546,6 @@ rc default
 ````
 
 
+
+# build boot.img tools
+http://unix.stackexchange.com/questions/64628/how-to-extract-boot-img
