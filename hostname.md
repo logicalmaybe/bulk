@@ -1,3 +1,13 @@
+# simple
+````
+echo st15i > /proc/sys/kernel/hostname
+echo local > /proc/sys/kernel/domainname
+````
+
+
+
+# OLD
+
 https://forums.gentoo.org/viewtopic.php?p=519288
 
 # defaults
@@ -15,7 +25,7 @@ nano /etc/resolv.conf
 rc-update add hostname default
 ````
 
-Logout an login again.
+Logout and login again.
 
 ###### last resort
 ````
