@@ -549,3 +549,46 @@ rc default
 
 # build boot.img tools
 http://unix.stackexchange.com/questions/64628/how-to-extract-boot-img
+
+````
+git clone git://github.com/logicalmaybe/mkbootfs.git
+make
+
+mv mkbootimg /usr/local/bin/
+mv unpackbootimg /usr/local/bin/
+
+mkdir cm10-boot-img
+unpackbootimg -i boot.img -o cm10-boot-img/
+
+````
+
+````
+boot.img is a small(ish) file that contain two main parts.
+
+          * kernel(important for android)
+          * ramdisk( a core set of instruction & binaries)
+Unpack boot.img:
+
+It contains the following steps:
+
+Download the tool using wget http://android-serialport-api.googlecode.com/files/android_bootimg_tools.tar.gz
+
+Extract the file using tar xvzf android_bootimg_tools.tar.gz.
+
+It contains two binaries:
+
+       * unpackbootimg
+       * mkbootimg
+3.Then execute ./unpackbootimg -i <filename.img> -o <output_path>
+
+It will contain,
+
+           * boot.img-zImage     ----> kernel
+           * boot.img-ramdisk.gz ----> ramdisk
+We can extract ramdisk also, using the following command
+
+gunzip -c boot.img-ramdisk.gz | cpio -i
+After changing the files, we can again pack those files as boot.img using mkbootimg
+
+Have fun!
+````
