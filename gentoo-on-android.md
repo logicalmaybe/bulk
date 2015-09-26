@@ -37,16 +37,19 @@ echo "
 ###### in gentoo chroot ``init.sh``
 ````
 cat > /init.sh << EOF
-rm /data/gentoo/etc/mtab
-ln -s /proc/mounts /data/gentoo/etc/mtab
-ln -s /proc/self/fd /data/gentoo/dev/fd
+echo st15i > /proc/sys/kernel/hostname
+echo local > /proc/sys/kernel/domainname
 
 busybox mount -t proc proc /data/gentoo/proc
 busybox mount --rbind /sys /data/gentoo/sys
 busybox mount --rbind /dev /data/gentoo/dev
 busybox mount -t tmpfs tmpfs /data/gentoo/tmp
 
-export ANDROID_PROPERTY_WORKSPACE=8,65536 # need for ``getprop`` to work; can be obtained from adb shell with ``printenv``
+rm /data/gentoo/etc/mtab
+ln -s /proc/mounts /data/gentoo/etc/mtab
+ln -s /proc/self/fd /data/gentoo/dev/fd
+
+export ANDROID_PROPERTY_WORKSPACE=8,65536
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin
 /system/xbin/busybox chroot /data/gentoo /bin/bash -c "/sbin/rc boot && /sbin/rc default && sleep 600 && /data/gentoo/stop-android.sh"
 EOF
