@@ -3,7 +3,7 @@
 /system/bin/mount -o remount,rw /system
 ````
 
-###### append gentoo mount & init to ``/system/etc/hw_config.sh``
+###### run gentoo from ``/system/etc/hw_config.sh`` (maybe there are better writeable init scripts on your device)
 ````
 echo "
 # mount sd card
@@ -12,6 +12,66 @@ echo "
     /data/gentoo/init.sh &> /data/gentoo/init-error.log
 " >> /system/etc/hw_config.sh
 ````
+
+###### in gentoo chroot ``init.sh``
+````
+cat > /init.sh << EOF
+rm /data/gentoo/etc/mtab
+ln -s /proc/mounts /data/gentoo/etc/mtab
+
+busybox mount -t proc proc /data/gentoo/proc
+busybox mount --rbind /sys /data/gentoo/sys
+busybox mount --rbind /dev /data/gentoo/dev
+busybox mount -t tmpfs tmpfs /data/gentoo/tmp
+
+ln -s /proc/self/fd /data/gentoo/dev/fd
+
+export ANDROID_PROPERTY_WORKSPACE=8,65536 # need for ``getprop`` to work; can be obtained from adb shell with ``printenv``
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin
+/system/xbin/busybox chroot /data/gentoo /bin/bash -c "/sbin/rc boot && /sbin/rc default && sleep 600 && /data/gentoo/stop-android.sh"
+EOF
+````
+
+###### in gentoo chroot ``stop-android.sh``
+````
+/system/bin/stop
+
+#setprop ctl.stop drm
+#setprop ctl.stop media
+#setprop ctl.stop dbus
+
+#setprop ctl.stop adbd
+
+#/system/bin/setprop ctl.stop media                             # media
+#/system/bin/setprop ctl.stop adbd                              # adb
+#/system/bin/setprop ctl.stop zygote                            # system
+#/system/bin/setprop ctl.stop drm                               # drm
+#/system/bin/setprop ctl.stop qmuxd                             # Qualcomm Management Interface Multiplexer
+#/system/bin/setprop ctl.stop vold                              # Android Vold (Volume Daemon) sub-system
+#/system/bin/setprop ctl.stop iddd
+#/system/bin/setprop ctl.stop debuggerd
+#/system/bin/setprop ctl.stop servicemanager
+#/system/bin/setprop ctl.stop installd
+#/system/bin/setprop ctl.stop keystore
+
+#/system/bin/setprop ctl.stop mltlusbd
+#/system/bin/setprop ctl.stop atfwd-daemon
+#/system/bin/setprop ctl.stop wpa_supplicant
+#/system/bin/setprop ctl.stop netd # wooot?
+#/system/bin/setprop ctl.stop netmgrd # wooot?
+
+# don't know how to shutdown lcd
+echo 0 > /sys/devices/i2c-0/0-0040/leds/lcd-backlight/brightness
+
+# info led
+echo 0 > /sys/devices/i2c-0/0-0040/leds/red/brightness
+echo 0 > /sys/devices/i2c-0/0-0040/leds/green/brightness
+echo 0 > /sys/devices/i2c-0/0-0040/leds/blue/brightness
+````
+
+
+
+
 
 
 # Pass 1
