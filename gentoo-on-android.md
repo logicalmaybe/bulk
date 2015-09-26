@@ -627,5 +627,5 @@ busybox cpio -i < ../sbin/ramdisk.cpio
 cd _unpack_ramdisk/
 find . | cpio -o -H newc | gzip > ../newramdisk.cpio.gz
 cd ..
-mkbootimg --kernel boot.img-zImage --ramdisk newramdisk.cpio.gz -o ../new_boot.img
+$ mkbootimg --cmdline '' --base 00200000 --pagesize 131072 --kernel_offset 00008000 --ramdisk_offset 01000000 --tags_offset 00000100 --kernel boot.img-zImage --ramdisk new-ramdisk-tribble-mount.cpio.gz -o new_boot_9_tribble_mount.img
 ````
