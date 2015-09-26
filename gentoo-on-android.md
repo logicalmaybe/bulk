@@ -1,3 +1,14 @@
+1. flash stock firmware
+2. get root
+3. install "rooted ssh/sftp daemon" from appstore
+4. ssh into android device
+5. prepare sdcard
+6. extract gentoo
+7. change android system to run gentoo init script
+  8. (how to run shutdown script???)
+
+
+# 
 # boot
 ````
 /system/bin/mount -o remount,rw /system
@@ -18,13 +29,12 @@ echo "
 cat > /init.sh << EOF
 rm /data/gentoo/etc/mtab
 ln -s /proc/mounts /data/gentoo/etc/mtab
+ln -s /proc/self/fd /data/gentoo/dev/fd
 
 busybox mount -t proc proc /data/gentoo/proc
 busybox mount --rbind /sys /data/gentoo/sys
 busybox mount --rbind /dev /data/gentoo/dev
 busybox mount -t tmpfs tmpfs /data/gentoo/tmp
-
-ln -s /proc/self/fd /data/gentoo/dev/fd
 
 export ANDROID_PROPERTY_WORKSPACE=8,65536 # need for ``getprop`` to work; can be obtained from adb shell with ``printenv``
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin
@@ -77,13 +87,6 @@ echo 0 > /sys/devices/i2c-0/0-0040/leds/blue/brightness
 # Pass 1
 
 ````
-
-export SDCARD=/data/gentoo
-export ROOT=$SDCARD/mnt/gentoo_chroot/
-export LD_LIBRARY_PATH=/system/lib:$ROOT/lib:$ROOT/usr/lib:$ROOT/usr/armv7a-hardfloat-linux-gnueabi/lib
-export PATH=$ROOT/usr/local/bin:$ROOT/usr/local/sbin:$ROOT/usr/bin:$ROOT/usr/sbin:$ROOT/bin:$ROOT/sbin:$PATH
-
-
 CHROOT GENTOO on ANDROID
 https://wiki.gentoo.org/wiki/Chroot/de
 
