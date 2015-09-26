@@ -1,3 +1,5 @@
+http://www.thegeekstuff.com/2011/09/linux-htop-examples/
+
 1. htop Output
 
 htop output consists of three sections 1) header 2) body and 3) footer.
