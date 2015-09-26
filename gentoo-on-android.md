@@ -592,3 +592,27 @@ After changing the files, we can again pack those files as boot.img using mkboot
 
 Have fun!
 ````
+
+
+# extract boot.img
+````
+git clone git://github.com/logicalmaybe/mkbootimg.git
+make
+
+mv mkbootimg /usr/local/bin/
+mv unpackbootimg /usr/local/bin/
+
+mkdir ~/android-boot-img
+unpackbootimg -i boot.img -o ~/android-boot-img/
+cd ~/android-boot-img/
+
+mkdir _unpack_ramdisk
+cd _unpack_ramdisk/
+gunzip -c ../boot.img-ramdisk.gz | cpio -i
+
+mkdir _unpack_root_fs
+cd _unpack_root_fs/
+busybox cpio -i < ../sbin/ramdisk.cpio
+# rm -Rf _unpack_root_fs/
+
+````
