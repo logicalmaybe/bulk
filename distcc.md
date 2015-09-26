@@ -27,6 +27,14 @@ distcc-config --get-hosts
 
 ````
 
+
+## on client
+
+### change config
+````
+nano /etc/default/distcc 
+````
+
 ### add distcc to inet group
 ````
 usermod --append -G inet distcc
