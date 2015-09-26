@@ -616,3 +616,8 @@ busybox cpio -i < ../sbin/ramdisk.cpio
 # rm -Rf _unpack_root_fs/
 
 ````
+
+# pack boot.img
+````
+
+````
