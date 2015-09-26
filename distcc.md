@@ -151,3 +151,8 @@ PATH=/home/osboxes/x-tools7h-new/arm-hardfloat-linux-gnueabi/bin/:/usr/local/sbi
 /etc/init.d/distcc restart
 systemctl daemon-reload
 ````
+
+````
+# CC="distcc gcc" CXX="distcc g++" cmake
+# CC="distcc gcc" CXX="distcc g++" pump emerge glibc -1
+````
