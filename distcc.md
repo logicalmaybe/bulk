@@ -6,9 +6,10 @@
 * http://mynixworld.info/2013/02/24/distributed-compilation-with-distcc-x86-vs-r-pi/
 
 
-Definition
-* Host: arm device
-* Slave: all workers
+Terms
+
+* host / master / arm device: The master is the computer which initiates and distributes the compilation to the configured slaves.
+* slaves / workers: The slaves are running the distcc daemon which accepts incoming compilation requests send by the master.
 
 ## on Host
 ````
