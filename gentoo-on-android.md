@@ -8,6 +8,7 @@
 6. extract gentoo
 7. change android system to run gentoo init script
   8. (how to run shutdown script???)
+  9. (how to lower load-battery threshold???)
 9. remove unneeded apps to free space
 
 
