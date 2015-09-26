@@ -17,6 +17,12 @@ FEATURES="-userfetch distcc distcc-pump"
 MAKEOPTS="-j12 -l1" # l=local cores, j=all cores * 2 + 1
 ````
 
+### add distcc to inet group
+````
+usermod --append -G inet distcc
+````
+
+
 # on Slave (normal user _not_ root!)
 
 ### Install crosstool-ng
