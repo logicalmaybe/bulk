@@ -594,14 +594,17 @@ Have fun!
 ````
 
 
-# extract boot.img
+# boot.img pack/unpack tools
 ````
 git clone git://github.com/logicalmaybe/mkbootimg.git
 make
 
 mv mkbootimg /usr/local/bin/
 mv unpackbootimg /usr/local/bin/
+````
 
+# extract boot.img
+````
 mkdir ~/android-boot-img
 unpackbootimg -i boot.img -o ~/android-boot-img/
 cd ~/android-boot-img/
