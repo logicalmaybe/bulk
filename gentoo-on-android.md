@@ -49,7 +49,7 @@ rm /data/gentoo/etc/mtab
 ln -s /proc/mounts /data/gentoo/etc/mtab
 ln -s /proc/self/fd /data/gentoo/dev/fd
 
-export ANDROID_PROPERTY_WORKSPACE=8,65536
+export ANDROID_PROPERTY_WORKSPACE=8,65536 # need for ``getprop`` to work; can be obtained from adb shell with ``printenv``
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin
 /system/xbin/busybox chroot /data/gentoo /bin/bash -c "/sbin/rc boot && /sbin/rc default && sleep 600 && /data/gentoo/stop-android.sh"
 EOF
