@@ -1,3 +1,5 @@
+# (CHROOT) GENTOO on ANDROID
+
 1. flash stock firmware
 2. get root
 3. install "rooted ssh/sftp daemon" from appstore
@@ -6,6 +8,7 @@
 6. extract gentoo
 7. change android system to run gentoo init script
   8. (how to run shutdown script???)
+9. remove unneeded apps to free space
 
 
 # 
