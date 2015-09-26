@@ -21,12 +21,13 @@ root@localhost $ nano /etc/portage/make.conf
 FEATURES="-userfetch distcc distcc-pump"
 MAKEOPTS="-j12 -l1" # l=local cores, j=all cores * 2 + 1
 
-
-
 distcc-config --set-hosts 192.168.1.116/24,lzo,cpp
 distcc-config --get-hosts
-
 ````
+
+* lzo: Enables LZO compression for this TCP or SSH host (slave).
+* cpp: Enables distcc-pump mode for this host (slave). Note: the build command must be wrapped in the pump script in order to start the include server.
+
 
 
 ## on client
