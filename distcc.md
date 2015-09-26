@@ -1,10 +1,10 @@
 # distcc for armv7a-hardfloat-linux-gnueabi
 
 ### Links
-* https://wiki.archlinux.org/index.php/Distcc
-* http://crosstool-ng.org/
-* http://archlinuxarm.org/developers/distcc-cross-compiling
-* http://mynixworld.info/2013/02/24/distributed-compilation-with-distcc-x86-vs-r-pi/
+1. http://archlinuxarm.org/developers/distcc-cross-compiling
+2. https://wiki.archlinux.org/index.php/Distcc
+3. http://crosstool-ng.org/
+4. http://mynixworld.info/2013/02/24/distributed-compilation-with-distcc-x86-vs-r-pi/
 
 
 Terms
