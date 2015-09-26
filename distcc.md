@@ -23,7 +23,7 @@ usermod --append -G inet distcc
 ````
 
 
-# on Slave (normal user _not_ root!)
+# compiling toolchain on Slave (normal user _not_ root!)
 
 ### Install crosstool-ng
 
