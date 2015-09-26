@@ -4,11 +4,17 @@
 2. get root
 3. install "rooted ssh/sftp daemon" from appstore
 4. ssh into android device
+5. stop some services to free up memory
 5. prepare sdcard
 6. extract gentoo
+  7. latest busybox
+  8. latest toybox
+  9. chroot into gentoo
 7. change android system to run gentoo init script
   8. (how to run shutdown script???)
   9. (how to lower load-battery threshold???)
+9. check cpu freq governors
+10. switch IO scheduler
 9. remove unneeded apps to free space
 
 
