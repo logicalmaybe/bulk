@@ -42,6 +42,10 @@ distcc-config --get-hosts
 nano /etc/portage/make.conf
 # FEATURES="-userfetch distcc distcc-pump"
 # MAKEOPTS="-j12 -l1" # l=local cores, j=all cores * 2 + 1
+# CC="distcc"
+# CXX="distcc"
+# # DISTCC_FALLBACK=0 # debug option
+# # DISTCC_VERBOSE=0  # debug option
 ````
 
 ## Slave
