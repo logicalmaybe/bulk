@@ -60,10 +60,10 @@ EOF
 #/system/bin/setprop ctl.stop netd # wooot?
 #/system/bin/setprop ctl.stop netmgrd # wooot?
 
-# don't know how to shutdown lcd
+# dim lcd (don't know how to call "sony_lcd_display_off")
 echo 0 > /sys/devices/i2c-0/0-0040/leds/lcd-backlight/brightness
 
-# info led
+# dim info led
 echo 0 > /sys/devices/i2c-0/0-0040/leds/red/brightness
 echo 0 > /sys/devices/i2c-0/0-0040/leds/green/brightness
 echo 0 > /sys/devices/i2c-0/0-0040/leds/blue/brightness
