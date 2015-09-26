@@ -1,3 +1,7 @@
+# Pass 1
+
+````
+
 export SDCARD=/data/gentoo
 export ROOT=$SDCARD/mnt/gentoo_chroot/
 export LD_LIBRARY_PATH=/system/lib:$ROOT/lib:$ROOT/usr/lib:$ROOT/usr/armv7a-hardfloat-linux-gnueabi/lib
@@ -377,7 +381,52 @@ cat /sys/block/mmcblk0/queue/scheduler
 cat /proc/kmsg
 suspend goes wild?
 find /sys | grep suspend
+````
 
 
+# Pass 2
+````
+rm /data/gentoo/mnt/gentoo_chroot/etc/mtab
+ln -s /proc/mounts /data/gentoo/mnt/gentoo_chroot/etc/mtab
+
+busybox mount -t proc proc /data/gentoo/mnt/gentoo_chroot/proc
+busybox mount --rbind /sys /data/gentoo/mnt/gentoo_chroot/sys
+busybox mount --rbind /dev /data/gentoo/mnt/gentoo_chroot/dev
+#busybox mount -o bind /tmp /data/gentoo/mnt/gentoo_chroot/tmp
+busybox mount -t tmpfs tmpfs /data/gentoo/mnt/gentoo_chroot/tmp
+
+#PATH=/bin:/usr/bin:/sbin:/usr/sbin /system/xbin/busybox chroot /data/gentoo/mnt/gentoo_chroot /bin/bash
+PATH=/bin:/usr/bin:/sbin:/usr/sbin:/data/gentoo/bin:/data/gentoo/usr/bin chroot /data/gentoo/mnt/gentoo_chroot /bin/bash
+/usr/sbin/env-update
+source /etc/profile
+export PS1="(chroot) $PS1"
+
+
+
+### install layman
+layman --sync-all
+bash: layman: command not found
+
+### set proper timezone
+# emerge --config sys-libs/timezone-data
+
+### set locale
+# locale-gen
+# eselect locale list
+# env-update && source /etc/profile
+
+
+# lspci
+emerge sys-apps/pciutils
+
+# install some stuff
+emerge sys-apps/pciutils layman app-misc/screen
+
+
+
+export PATH=/bin:/usr/bin:/sbin:/usr/sbin:/data/gentoo/bin:/data/gentoo/usr/bin chroot /data/gentoo/mnt/gentoo_chroot /bin/bash
+
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin
+````
 
 
