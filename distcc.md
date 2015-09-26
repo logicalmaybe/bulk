@@ -1,12 +1,14 @@
 # distcc for armv7a-hardfloat-linux-gnueabi
 
-http://archlinuxarm.org/developers/distcc-cross-compiling
+### Links
+* http://crosstool-ng.org/
+* http://archlinuxarm.org/developers/distcc-cross-compiling
 
 
 * Host: arm device
 * Slave: all workers
 
-# on Host
+## on Host
 ````
 root@localhost $ gcc -dumpmachine
 armv7a-hardfloat-linux-gnueabi
@@ -23,7 +25,7 @@ usermod --append -G inet distcc
 ````
 
 
-# compiling toolchain on Slave (normal user _not_ root!)
+## compiling toolchain on Slave (normal user _not_ root!)
 
 ### Install crosstool-ng
 
@@ -48,15 +50,15 @@ wget http://archlinuxarm.org/builder/xtools/xtools-dotconfig-v7 -O .config
 ./ct-ng oldconfig
 ````
 
-### check cpu features
+### check cpu features on host
 ````
-grep Features /proc/cpuinfo
-# Features        : swp half thumb fastmult vfp edsp neon vfpv3
+root@arm-host $ grep Features /proc/cpuinfo
+Features        : swp half thumb fastmult vfp edsp neon vfpv3
 ````
 
-### check gcc
+### check gcc on host
 ````
-root@localhost $ gcc -dumpmachine
+root@arm-host $ gcc -dumpmachine
 armv7a-hardfloat-linux-gnueabi
 ````
 
