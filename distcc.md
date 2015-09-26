@@ -82,8 +82,11 @@ $ ./ct-ng build
 ....
 ````
 
+The toolchain will install under "~/x-tools*".
+
 ### create links with proper names
 ````
+cd ~/x-tools7h-new/arm-hardfloat-linux-gnueabi/bin/`
 nano ./link.sh
 ````
 
@@ -107,3 +110,6 @@ done
 chmod +x ./link.sh
 # ./link.sh
 ````
+
+Now the "bin" directory contains links with names that distcc will play nice with.
+
