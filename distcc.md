@@ -113,3 +113,17 @@ chmod +x ./link.sh
 
 Now the "bin" directory contains links with names that distcc will play nice with.
 
+To get distcc to use these binaries instead of the default system ones, we need to place this directory into the path for the distcc daemon:
+
+### change PATH in distcc daemon
+````
+nano /etc/init.d/distcc
+# PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+PATH=/home/osboxes/x-tools7h-new/arm-hardfloat-linux-gnueabi/bin/:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+````
+
+### restart/reload distcc
+````
+/etc/init.d/distcc restart
+systemctl daemon-reload
+````
