@@ -5,13 +5,12 @@
 
 ###### append gentoo mount & init to ``/system/etc/hw_config.sh``
 ````
-cat << EOF > /system/etc/hw_config.sh
+echo "
 # mount sd card
-	mkdir /data/gentoo
-	mount -t ext2 /dev/block/mmcblk0p1 /data/gentoo
-	/data/gentoo/init.sh &> /data/gentoo/init-error.log
-EOF
-
+    mkdir /data/gentoo
+    mount -t ext2 /dev/block/mmcblk0p1 /data/gentoo
+    /data/gentoo/init.sh &> /data/gentoo/init-error.log
+" >> /system/etc/hw_config.sh
 ````
 
 
