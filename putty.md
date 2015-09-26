@@ -1,5 +1,8 @@
 http://blog.sanctum.geek.nz/putty-configuration/
 
+# font
+Check out "Consolas".
+
 # terminfo
 
 1. set ``Connection => Data => Terminal-type string`` in putty to ``putty-256color``
