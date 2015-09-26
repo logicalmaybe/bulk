@@ -81,3 +81,29 @@ $ ./ct-ng build
 [EXTRA]  Dumping internal crosstool-NG configuration: done in 0.09s (at 00:02)
 ....
 ````
+
+### create links with proper names
+````
+nano ./link.sh
+````
+
+````
+#!/bin/bash
+
+CHOST_GEN="arm-hardfloat-linux-gnueabi"
+CHOST_REAL="armv7a-hardfloat-linux-gnueabi"
+
+filename=$(basename "$0")
+
+for file in `ls`; do
+        if [[ "$file" == "$filename" ]]; then
+                continue
+        fi
+        ln -s "$file" "$CHOST_REAL${file#$CHOST_GEN}"
+done
+````
+
+````
+chmod +x ./link.sh
+# ./link.sh
+````
