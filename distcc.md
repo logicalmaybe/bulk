@@ -7,7 +7,7 @@ Howto compile binaries for arm platform on remote x86_64 with arm-toolchain.
 2. https://wiki.archlinux.org/index.php/Distcc
 3. http://crosstool-ng.org/
 4. http://mynixworld.info/2013/02/24/distributed-compilation-with-distcc-x86-vs-r-pi/
-
+5. http://distcc.googlecode.com/svn/trunk/doc/web/man/include_server_1.html
 
 Terms
 
