@@ -3,7 +3,7 @@
 # Howto compile binaries for arm platform on remote x86_64?
 
 1. install distcc on master and slaves
-2. build arm-toolchain on slaves
+2. build arm-toolchain on slaves (or download prebuild: http://archlinuxarm.org/builder/xtools/x-tools7h.tar.xz)
 3. config && start && compile :)
 
 
