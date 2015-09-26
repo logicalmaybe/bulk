@@ -1,6 +1,9 @@
-Howto compile binaries for arm platform on remote x86_64 with arm-toolchain.
+**distcc for armv7a-hardfloat-linux-gnueabi**Howto compile binaries for arm platform on remote x86_64?
 
-# distcc for armv7a-hardfloat-linux-gnueabi
+1. install distcc
+2.  with arm-toolchain
+
+
 
 ### Links
 1. http://archlinuxarm.org/developers/distcc-cross-compiling
