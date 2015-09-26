@@ -1,3 +1,5 @@
+Howto compile binaries for arm platform on remote x86_64 with arm-toolchain.
+
 # distcc for armv7a-hardfloat-linux-gnueabi
 
 ### Links
@@ -9,40 +11,45 @@
 
 Terms
 
-* -host / master / arm device-:
-* *       The master is the computer which initiates and distributes the compilation to the configured slaves.
-* slaves / workers: The slaves are running the distcc daemon which accepts incoming compilation requests send by the master.
+* **host / master**
+  * arm device
+  * The master is the computer which initiates and distributes the compilation to the configured slaves.
+* **workers / slaves**
+  * The slaves are running the distcc daemon which accepts incoming compilation requests send by the master.
 
-## on Host
+## Master
+
 ````
-root@localhost $ gcc -dumpmachine
-armv7a-hardfloat-linux-gnueabi
+gcc -dumpmachine
+# armv7a-hardfloat-linux-gnueabi
 
-root@localhost $ nano /etc/portage/make.conf
+emerge -vat distcc
 
-FEATURES="-userfetch distcc distcc-pump"
-MAKEOPTS="-j12 -l1" # l=local cores, j=all cores * 2 + 1
-
-distcc-config --set-hosts 192.168.1.116/24,lzo,cpp
-distcc-config --get-hosts
-````
-
-* lzo: Enables LZO compression for this TCP or SSH host (slave).
-* cpp: Enables distcc-pump mode for this host (slave). Note: the build command must be wrapped in the pump script in order to start the include server.
-
-
-
-## on client
-
-### change config
-````
-nano /etc/default/distcc 
-````
-
-### add distcc to inet group
-````
+# add distcc to inet group
 usermod --append -G inet distcc
+
+# 5=cores, lzo=LZO compression, cpp=distcc-pump mode
+distcc-config --set-hosts 192.168.1.116/5,lzo,cpp
+distcc-config --get-hosts
+# 192.168.1.116/5,lzo,cpp
+
+nano /etc/portage/make.conf
+# FEATURES="-userfetch distcc distcc-pump"
+# MAKEOPTS="-j12 -l1" # l=local cores, j=all cores * 2 + 1
 ````
+
+## Slave
+
+````
+# edit distcc config
+nano /etc/default/distcc
+# ...
+
+/etc/init.d/distcc restart
+systemctl daemon-reload
+
+````
+
 
 
 ## compiling toolchain on Slave (normal user _not_ root!)
