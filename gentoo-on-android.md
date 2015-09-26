@@ -430,3 +430,27 @@ export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin
 ````
 
 
+# Pass 3
+````
+rm /data/gentoo/mnt/gentoo_chroot/etc/mtab
+ln -s /proc/mounts /data/gentoo/mnt/gentoo_chroot/etc/mtab
+
+
+busybox mount -t proc proc /data/gentoo/mnt/gentoo_chroot/proc
+busybox mount --rbind /sys /data/gentoo/mnt/gentoo_chroot/sys
+busybox mount --rbind /dev /data/gentoo/mnt/gentoo_chroot/dev
+busybox mount -t tmpfs tmpfs /data/gentoo/mnt/gentoo_chroot/tmp
+
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin
+/system/xbin/busybox chroot /data/gentoo/mnt/gentoo_chroot /bin/bash
+
+
+/usr/sbin/env-update
+source /etc/profile
+export PS1="(chroot) $PS1"
+
+rc default
+
+````
+
+
