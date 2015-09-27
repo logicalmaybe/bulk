@@ -1,5 +1,6 @@
+# howto strace other terminal
+
 http://unix.stackexchange.com/questions/93892/screen-is-terminating
-^^ howto strace other terminal
 
 1. Open 2 new terminals
 2. In the first terminal, log in to the remote machine as ``root``
