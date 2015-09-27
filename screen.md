@@ -12,9 +12,9 @@ Um den Aufruf von "screen" beim Anmelden zu automatisieren (was bei einem Deskto
 
 ````
 if  [ -z $STY ] && [ $TERM != "screen" ]; then
- /usr/bin/screen -xRR;
+    /usr/bin/screen -xRR;
 else
- /usr/bin/screen -X hardstatus alwayslastline '[%H] %Lw%=%u %d.%m.%y %c '
+    /usr/bin/screen -X hardstatus alwayslastline '[%H] %Lw%=%u %d.%m.%y %c '
 fi
 ````
 
@@ -24,7 +24,7 @@ Mit den folgenden Erweiterung am Ende der Datei .bash_profile wird automatisch m
 
 ````
 if [ "$TERM" != "screen" ] && [ "$SSH_CONNECTION" != "" ]; then
- /usr/bin/screen -S sshscreen -d -R && exit
+    /usr/bin/screen -S sshscreen -d -R && exit
 fi
 ````
 
