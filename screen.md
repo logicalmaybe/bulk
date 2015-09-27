@@ -1,6 +1,8 @@
 # run irssi in screen
-``ExecStart=/usr/bin/screen -dmS ircsess irssi``
-``ExecStop=/usr/bin/screen -S ircsess -X quit``
+````
+ExecStart=/usr/bin/screen -dmS ircsess irssi
+ExecStop=/usr/bin/screen -S ircsess -X quit
+````
 
 
 # autostart screen in bash
