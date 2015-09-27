@@ -11,11 +11,11 @@ Automatischer Aufruf
 Um den Aufruf von "screen" beim Anmelden zu automatisieren (was bei einem Desktop-System evtl. nicht sinnvoll ist), kann die Datei .bash_profile im Homeverzeichnis wie folgt erweitert werden [3]:
 
 ````
- if  [ -z $STY ] && [ $TERM != "screen" ]; then
-   /usr/bin/screen -xRR;
- else
-   /usr/bin/screen -X hardstatus alwayslastline '[%H] %Lw%=%u %d.%m.%y %c '
- fi
+if  [ -z $STY ] && [ $TERM != "screen" ]; then
+ /usr/bin/screen -xRR;
+else
+ /usr/bin/screen -X hardstatus alwayslastline '[%H] %Lw%=%u %d.%m.%y %c '
+fi
 ````
 
 # ssh-Screen
@@ -24,7 +24,7 @@ Mit den folgenden Erweiterung am Ende der Datei .bash_profile wird automatisch m
 
 ````
 if [ "$TERM" != "screen" ] && [ "$SSH_CONNECTION" != "" ]; then
-   /usr/bin/screen -S sshscreen -d -R && exit
+ /usr/bin/screen -S sshscreen -d -R && exit
 fi
 ````
 
