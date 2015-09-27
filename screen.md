@@ -1,3 +1,8 @@
+http://unix.stackexchange.com/questions/93892/screen-is-terminating
+
+^^ strace help
+
+
 http://wiki.ubuntuusers.de/SCREEN
 
 Automatischer Aufruf
