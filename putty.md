@@ -28,6 +28,13 @@ done
 
 Use ``reset`` after test, if needed.
 
+#### use screen scroll back buffer in putty
+http://unix.stackexchange.com/questions/18006/can-mouse-wheel-scrolling-work-in-a-usr-bin-screen-session
+
+Add this to .screenrc: ``termcapinfo putty-256color ti@:te@``
+In tmux, it'd be something like (.tmux.conf): ``set -g terminal-overrides 'xterm*:smcup@:rmcup@'``
+
+
 
 # UTF-8
 
